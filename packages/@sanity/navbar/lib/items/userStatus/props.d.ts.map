@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/items/userStatus/props.ts"],"names":[],"mappings":"AAEA,OAAO,EAA2B,UAAU,EAAC,MAAM,MAAM,CAAA;AAGzD,OAAO,EAAC,cAAc,EAAE,KAAK,EAAC,MAAM,SAAS,CAAA;AAS7C,wBAAgB,aAAa,CAAC,MAAM,EAAE,UAAU,CAAC,cAAc,CAAC,GAAG,UAAU,CAAC,KAAK,CAAC,CAqBnF","file":"props.d.ts","sourceRoot":"../../"}

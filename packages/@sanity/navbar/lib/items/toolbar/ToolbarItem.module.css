@@ -1,0 +1,58 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  position: relative;
+  white-space: nowrap;
+  display: block;
+  color: inherit;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  text-decoration: none;
+
+  @nest &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  @media (hover: hover) {
+    opacity: 0.6;
+
+    @nest &:hover {
+      opacity: 1;
+    }
+  }
+
+  @nest a:focus & {
+    opacity: 1;
+  }
+}
+
+.active {
+  composes: root;
+  opacity: 1;
+}
+
+.tooltip {
+  display: block !important;
+}
+
+.inner {
+  padding: var(--medium-padding);
+  outline: none;
+}
+
+.iconWrapper {
+  display: inline-block;
+  vertical-align: top;
+
+  @nest & * {
+    font-size: 25px;
+    vertical-align: top;
+    margin: -4px;
+  }
+}
+
+.labelWrapper {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: var(--small-padding);
+}

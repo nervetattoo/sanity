@@ -1,0 +1,20 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  outline: none;
+  padding: var(--medium-padding);
+  line-height: calc(17 / 16);
+  border: none;
+  background: none;
+  color: inherit;
+
+  @nest & svg {
+    vertical-align: top;
+    font-size: 25px;
+    margin: -4px;
+  }
+
+  @nest &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
