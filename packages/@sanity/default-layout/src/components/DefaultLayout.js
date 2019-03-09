@@ -7,10 +7,10 @@ import {RouteScope, withRouterHOC} from 'part:@sanity/base/router'
 import absolutes from 'all:part:@sanity/base/absolutes'
 import {isActionEnabled} from 'part:@sanity/base/util/document-action-utils'
 import userStore from 'part:@sanity/base/user'
+import {NavbarContainer} from 'part:@sanity/navbar'
 import styles from './styles/DefaultLayout.css'
 import RenderTool from './RenderTool'
 import ActionModal from './ActionModal'
-import NavBarContainer from './NavBarContainer'
 import {SchemaErrorReporter} from './SchemaErrorReporter'
 import SideMenu from './SideMenu'
 
@@ -38,7 +38,8 @@ export default withRouterHOC(
       loaded: false
     }
 
-    componentWillMount() {
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillMount() {
       this.userSubscription = userStore.currentUser.subscribe(event =>
         this.setState({user: event.user})
       )
@@ -85,9 +86,11 @@ export default withRouterHOC(
 
     componentDidUpdate(prevProps) {
       if (!this.state.loaded) {
-        this.setState({
-          loaded: true
-        })
+        setTimeout(() => {
+          this.setState({
+            loaded: true
+          })
+        }, 0)
       }
     }
 
@@ -128,7 +131,7 @@ export default withRouterHOC(
     }
 
     renderContent = () => {
-      const {tools, router} = this.props
+      const {router, tools} = this.props
       const {createMenuIsOpen, menuIsOpen, searchIsOpen} = this.state
 
       const TYPE_ITEMS = dataAspects
@@ -167,19 +170,7 @@ export default withRouterHOC(
           )}
 
           <div className={styles.navBar}>
-            <NavBarContainer
-              tools={tools}
-              onCreateButtonClick={this.handleCreateButtonClick}
-              onToggleMenu={this.handleToggleMenu}
-              onSwitchTool={this.handleSwitchTool}
-              router={router}
-              user={this.state.user}
-              searchIsOpen={searchIsOpen}
-              /* eslint-disable-next-line react/jsx-handler-names */
-              onUserLogout={userStore.actions.logout}
-              onSearchOpen={this.handleSearchOpen}
-              onSearchClose={this.handleSearchClose}
-            />
+            <NavbarContainer />
           </div>
 
           <div className={styles.sideMenuContainer}>
@@ -190,7 +181,7 @@ export default withRouterHOC(
               /* eslint-disable-next-line react/jsx-handler-names */
               onSignOut={userStore.actions.logout}
               onSwitchTool={this.handleSwitchTool}
-              tools={this.props.tools}
+              tools={tools}
               user={this.state.user}
             />
           </div>
@@ -206,7 +197,9 @@ export default withRouterHOC(
           {createMenuIsOpen && (
             <ActionModal onClose={this.handleActionModalClose} actions={modalActions} />
           )}
-          {absolutes.map((Abs, i) => <Abs key={i} />)}
+          {absolutes.map((Abs, i) => (
+            <Abs key={String(i)} />
+          ))}
         </div>
       )
     }

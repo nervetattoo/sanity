@@ -1,0 +1,65 @@
+{
+  "paths": {
+    "source": "./src",
+    "compiled": "./lib"
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/navbar",
+      "description": "Navbar container"
+    },
+    {
+      "implements": "part:@sanity/navbar",
+      "path": "parts/navbar"
+    },
+    {
+      "name": "part:@sanity/navbar/config",
+      "description": "Navbar configuration"
+    },
+    {
+      "implements": "part:@sanity/navbar/config",
+      "path": "parts/config"
+    },
+    {
+      "name": "part:@sanity/navbar/types",
+      "description": "Navbar TypeScript types"
+    },
+    {
+      "implements": "part:@sanity/navbar/types",
+      "path": "parts/types"
+    },
+
+    {
+      "name": "part:@sanity/navbar/item",
+      "description": "Navbar item"
+    },
+    {
+      "implements": "part:@sanity/navbar/item",
+      "path": "items/branding"
+    },
+    {
+      "implements": "part:@sanity/navbar/item",
+      "path": "items/createButton"
+    },
+    {
+      "implements": "part:@sanity/navbar/item",
+      "path": "items/notifications"
+    },
+    {
+      "implements": "part:@sanity/navbar/item",
+      "path": "items/sanityStatus"
+    },
+    {
+      "implements": "part:@sanity/navbar/item",
+      "path": "items/search"
+    },
+    {
+      "implements": "part:@sanity/navbar/item",
+      "path": "items/toolbar"
+    },
+    {
+      "implements": "part:@sanity/navbar/item",
+      "path": "items/userStatus"
+    }
+  ]
+}

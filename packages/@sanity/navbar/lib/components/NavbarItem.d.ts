@@ -1,14 +1,14 @@
-/// <reference types="react" />
-import { Item, ItemLayoutConfig } from '../types';
-interface Props {
-    item: Item | null;
+import * as React from 'react';
+import { ItemLayoutConfig } from '../types';
+export interface Props {
+    component: React.ComponentFactory<any, any>;
     layout: ItemLayoutConfig;
-    minimized?: boolean;
+    minimized: boolean;
     name: string;
     options: {
         [key: string]: any;
     };
-    setElement?: (element: HTMLDivElement | null) => void;
+    setElement: (element: HTMLDivElement | null) => void;
 }
 declare function NavbarItem(props: Props): JSX.Element;
 export default NavbarItem;

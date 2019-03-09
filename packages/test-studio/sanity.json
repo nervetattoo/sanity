@@ -29,6 +29,7 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
+    "@sanity/navbar",
     "@sanity/rich-date-input",
     "@sanity/code-input",
     "@sanity/color-input",
@@ -70,6 +71,10 @@
     {
       "name": "part:@sanity/desk-tool/structure",
       "path": "src/deskStructure.js"
+    },
+    {
+      "implements": "part:@sanity/navbar/config",
+      "path": "src/navbarConfig.js"
     }
   ],
   "env": {

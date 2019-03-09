@@ -1,69 +1,44 @@
-import {throttle} from 'lodash'
 import * as React from 'react'
 import Navbar from '../../components/Navbar'
-import NavbarItem from '../../components/NavbarItem'
+import {Props as ItemProps} from '../../components/NavbarItem'
 import config from './config'
-import items from './items'
+import itemParts from './items'
+import {setElement} from './state'
 
-interface ItemState {
-  isIntersecting: boolean
-}
+function NavbarContainer() {
+  const items: Array<ItemProps> = config.items.map((itemConfig, idx) => {
+    const itemPart = itemParts.find(i => i.name === itemConfig.name) || null
 
-interface State {
-  items: ItemState[]
-}
-
-class NavbarContainer extends React.Component<{}, State> {
-  elements: Array<HTMLDivElement | null>
-
-  constructor(props: {}) {
-    super(props)
-    this.elements = config.items.map(() => null)
-    this.state = {
-      items: config.items.map(() => ({isIntersecting: false}))
+    if (!itemPart) {
+      return {
+        component: () => (
+          <div>
+            [unknown:
+            {itemConfig.name}]
+          </div>
+        ),
+        layout: {},
+        minimized: false,
+        options: {},
+        setElement: (element: any) => setElement(element, idx)
+      }
     }
-    this.handleResize = throttle(this.handleResize, 1000)
-  }
 
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize()
-  }
+    const layout = {...(itemConfig.layout || {}), ...((itemPart && itemPart.layout) || {})}
+    const options = {...(itemConfig.options || {}), ...((itemPart && itemPart.options) || {})}
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize)
-  }
+    const item: ItemProps = {
+      component: itemPart.component,
+      layout,
+      minimized: false,
+      options,
+      setElement: element => setElement(element, idx)
+    }
 
-  handleResize = () => {
-    console.log('resize', this.state, this.elements)
-  }
+    return item
+  })
 
-  setElement(element: HTMLDivElement | null, idx: number) {
-    this.elements[idx] = element
-  }
-
-  render() {
-    return (
-      <Navbar config={config}>
-        {config.items.map((itemConfig, idx) => {
-          const item = items.find(i => i.name === itemConfig.name) || null
-          const layout = {...(itemConfig.layout || {}), ...((item && item.layout) || {})}
-          const options = {...(itemConfig.options || {}), ...((item && item.options) || {})}
-          return (
-            <NavbarItem
-              item={item}
-              key={itemConfig.name}
-              layout={layout}
-              minimized
-              name={itemConfig.name}
-              options={options}
-              setElement={element => this.setElement(element, idx)}
-            />
-          )
-        })}
-      </Navbar>
-    )
-  }
+  return <Navbar items={items} />
 }
 
 export default NavbarContainer

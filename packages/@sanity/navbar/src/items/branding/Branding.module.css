@@ -1,0 +1,21 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+
+  @nest &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.logoWrapper {
+}
+
+.projectNameWrapper {
+  line-height: calc(17 / 16);
+  font-weight: 600;
+  padding: var(--medium-padding);
+}

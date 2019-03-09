@@ -1,0 +1,22 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "module": "commonjs",
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "outDir": "lib/",
+    "target": "es2016",
+    "jsx": "react",
+    "declaration": true,
+    "lib": ["dom", "es2016"],
+    "paths": {
+      "part:@sanity/navbar/*": ["src/parts/*"]
+    }
+  },
+  "include": ["typings/*", "src/**/*.ts", "src/**/*.tsx"]
+}

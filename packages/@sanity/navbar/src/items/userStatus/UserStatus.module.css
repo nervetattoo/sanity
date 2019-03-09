@@ -1,0 +1,71 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  padding: var(--medium-padding);
+}
+
+.button {
+  -webkit-font-smoothing: antialiased;
+  appearance: none;
+  outline: none;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  margin: -8px 0;
+  display: block;
+  line-height: calc(17 / 16);
+
+  @nest &:focus {
+    background-color: color(var(--brand-primary) a(20%));
+  }
+}
+
+.inner {
+  position: relative;
+  outline: none;
+
+  @nest &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+  }
+}
+
+.userImage {
+  display: block;
+  height: calc(33 / 16 * 1rem);
+  width: calc(33 / 16 * 1rem);
+  border-radius: 50%;
+}
+
+.userImageMissing {
+  composes: userImage;
+  display: flex;
+  background-color: var(--brand-primary);
+  color: var(--brand-primary--inverted);
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: none;
+}
+
+.userName {
+  display: none;
+}
+
+.userMenu {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  z-index: var(--zindex-portal);
+}

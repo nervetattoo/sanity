@@ -507,6 +507,14 @@
       "path": "components/icons/AngleUpIcon.js"
     },
     {
+      "name": "part:@sanity/base/bell-icon",
+      "description": "Bell icon"
+    },
+    {
+      "implements": "part:@sanity/base/bell-icon",
+      "path": "components/icons/Bell.js"
+    },
+    {
       "name": "part:@sanity/base/spinner-icon",
       "description": "Used selects and dropdowns"
     },

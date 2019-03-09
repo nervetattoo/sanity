@@ -25,45 +25,43 @@ const severity$ = versionsStatus$.pipe(operators_1.map(versionsStatus => {
         ? levels[getHighestLevel(versionsStatus.outdated)]
         : null;
 }), operators_1.distinctUntilChanged());
-const MOCK = true;
+const MOCK = false;
+const MOCK_PROPS = {
+    severity: 'low',
+    versionsStatus: {
+        isSupported: true,
+        isUpToDate: false,
+        outdated: [
+            { name: '@sanity/base', version: '0.140.8', latest: '0.140.9' },
+            { name: '@sanity/code-input', version: '0.140.3', latest: '0.140.9' },
+            { name: '@sanity/components', version: '0.140.8', latest: '0.140.9' },
+            { name: '@sanity/core', version: '0.140.8', latest: '0.140.9' },
+            { name: '@sanity/default-layout', version: '0.140.8', latest: '0.140.9' },
+            { name: '@sanity/desk-tool', version: '0.140.8', latest: '0.140.9' },
+            { name: '@sanity/vision', version: '0.140.8', latest: '0.140.9' },
+            { name: '@sanity/cli', version: '0.140.8', latest: '0.140.9' }
+        ]
+    },
+    versions: {
+        '@sanity/base': '0.140.8',
+        '@sanity/block-content-to-react': '2.0.6',
+        '@sanity/client': '0.140.8',
+        '@sanity/code-input': '0.140.3',
+        '@sanity/color-input': '0.140.3',
+        '@sanity/components': '0.140.8',
+        '@sanity/core': '0.140.8',
+        '@sanity/default-layout': '0.140.8',
+        '@sanity/default-login': '0.140.3',
+        '@sanity/desk-tool': '0.140.8',
+        '@sanity/mutator': '0.140.0',
+        '@sanity/production-preview': '0.140.0',
+        '@sanity/storybook': '0.140.3',
+        '@sanity/vision': '0.140.8',
+        '@sanity/cli': '0.140.8'
+    }
+};
 exports.props$ = MOCK
-    ? rxjs_1.of({
-        onDialogClose: () => nextDialogOpen(false),
-        onDialogOpen: () => nextDialogOpen(true),
-        severity: 'low',
-        dialogOpen: true,
-        versionsStatus: {
-            isSupported: true,
-            isUpToDate: false,
-            outdated: [
-                { name: '@sanity/base', version: '0.140.8', latest: '0.140.9' },
-                { name: '@sanity/code-input', version: '0.140.3', latest: '0.140.9' },
-                { name: '@sanity/components', version: '0.140.8', latest: '0.140.9' },
-                { name: '@sanity/core', version: '0.140.8', latest: '0.140.9' },
-                { name: '@sanity/default-layout', version: '0.140.8', latest: '0.140.9' },
-                { name: '@sanity/desk-tool', version: '0.140.8', latest: '0.140.9' },
-                { name: '@sanity/vision', version: '0.140.8', latest: '0.140.9' },
-                { name: '@sanity/cli', version: '0.140.8', latest: '0.140.9' }
-            ]
-        },
-        versions: {
-            '@sanity/base': '0.140.8',
-            '@sanity/block-content-to-react': '2.0.6',
-            '@sanity/client': '0.140.8',
-            '@sanity/code-input': '0.140.3',
-            '@sanity/color-input': '0.140.3',
-            '@sanity/components': '0.140.8',
-            '@sanity/core': '0.140.8',
-            '@sanity/default-layout': '0.140.8',
-            '@sanity/default-login': '0.140.3',
-            '@sanity/desk-tool': '0.140.8',
-            '@sanity/mutator': '0.140.0',
-            '@sanity/production-preview': '0.140.0',
-            '@sanity/storybook': '0.140.3',
-            '@sanity/vision': '0.140.8',
-            '@sanity/cli': '0.140.8'
-        }
-    })
+    ? dialogOpen$.pipe(operators_1.map(dialogOpen => (Object.assign({}, MOCK_PROPS, { dialogOpen, onDialogClose: () => nextDialogOpen(false), onDialogOpen: () => nextDialogOpen(true) }))))
     : rxjs_1.combineLatest(dialogOpen$, versionsStatus$, severity$).pipe(operators_1.map(([dialogOpen, versionsStatus, severity]) => ({
         dialogOpen,
         onDialogClose: () => nextDialogOpen(false),

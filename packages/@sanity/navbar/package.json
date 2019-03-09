@@ -1,0 +1,44 @@
+{
+  "name": "@sanity/navbar",
+  "version": "0.140.9",
+  "description": "",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "author": "Sanity.io <hello@sanity.io>",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"No tests\" && exit 0",
+    "posttest": "tsc --noEmit",
+    "clean": "rimraf lib"
+  },
+  "keywords": [
+    "sanity",
+    "cms"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@sanity/base": "^0.140.9",
+    "@sanity/components": "^0.140.9",
+    "react": "^16.2.0",
+    "react-props-stream": "^1.0.0",
+    "rxjs": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.2.0",
+    "rimraf": "^2.6.2",
+    "typescript": "^3.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanity-io/sanity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sanity-io/sanity/issues"
+  },
+  "homepage": "https://www.sanity.io/"
+}

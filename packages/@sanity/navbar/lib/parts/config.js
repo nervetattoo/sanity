@@ -6,6 +6,7 @@ const config = {
         { name: 'branding' },
         { name: 'toolbar' },
         { name: 'search' },
+        { name: 'notifications' },
         { name: 'sanityStatus' },
         { name: 'userStatus' }
     ]

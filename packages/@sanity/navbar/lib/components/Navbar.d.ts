@@ -1,8 +1,7 @@
 /// <reference types="react" />
-import { Config } from '../types';
-interface Props {
-    children: any[];
-    config: Config;
+import { Props as ItemProps } from './NavbarItem';
+export interface Props {
+    items: ItemProps[];
 }
-declare function Navbar(props: Props): JSX.Element;
+declare function Navbar({ items }: Props): JSX.Element;
 export default Navbar;

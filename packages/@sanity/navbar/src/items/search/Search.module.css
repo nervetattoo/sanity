@@ -1,0 +1,33 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.root {
+  line-height: calc(17 / 16);
+  padding: var(--medium-padding);
+
+  @nest & input {
+    outline: none;
+    font: inherit;
+    line-height: 21px;
+    appearance: none;
+    background: color(var(--component-bg) alpha(10%));
+    border: 0;
+    border-radius: 4px;
+    padding: 5px 8px;
+    margin: -8px 0;
+    box-sizing: border-box;
+    color: inherit;
+
+    @nest &::placeholder {
+      color: inherit;
+    }
+
+    @nest &:focus {
+      background: var(--component-bg);
+      color: var(--body-text);
+
+      @nest &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+}

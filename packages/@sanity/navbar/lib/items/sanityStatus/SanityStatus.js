@@ -10,7 +10,6 @@ function formatUpdateLabel(len) {
     return `${len} updates`;
 }
 function SanityStatus(props) {
-    console.log(props);
     const { dialogOpen, onDialogClose, onDialogOpen, severity, versions, versionsStatus } = props;
     if (!versionsStatus || versionsStatus.isUpToDate) {
         // Do not show if there's nothing to update

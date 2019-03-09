@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/items/sanityStatus/props.ts"],"names":[],"mappings":"AAGA,OAAO,EAAuB,UAAU,EAAK,MAAM,MAAM,CAAA;AAIzD,OAAO,EAAgB,KAAK,EAAyC,MAAM,SAAS,CAAA;AA6CpF,eAAO,MAAM,MAAM,EAAE,UAAU,CAAC,KAAK,CA+ChC,CAAA","file":"props.d.ts","sourceRoot":"../../"}
+{"version":3,"sources":["../src/items/sanityStatus/props.ts"],"names":[],"mappings":"AAGA,OAAO,EAAuB,UAAU,EAAK,MAAM,MAAM,CAAA;AAIzD,OAAO,EAAgB,KAAK,EAAyC,MAAM,SAAS,CAAA;AA+EpF,eAAO,MAAM,MAAM,EAAE,UAAU,CAAC,KAAK,CAkBhC,CAAA","file":"props.d.ts","sourceRoot":"../../"}
