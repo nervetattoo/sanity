@@ -6,7 +6,7 @@
     "build": "lerna run clean && gulp && npm run package",
     "clean": "lerna run clean && lerna clean",
     "publish": "npm run build && lerna publish --exact",
-    "publish-canary": "npm run build && lerna publish --canary --exact",
+    "publish-canary": "npm run build && lerna publish --canary --force-publish --no-git-tag-version --exact",
     "package": "npm run package-yarn && npm run package-cli",
     "package-cli": "(cd packages/@sanity/cli && npm run pack)",
     "package-yarn": "(cd packages/@sanity/cli && npm run package-yarn)",
